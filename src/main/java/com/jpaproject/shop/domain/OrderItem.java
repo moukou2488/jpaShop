@@ -30,4 +30,7 @@ public class OrderItem {
     private int orderPrice; //주문 가격
     private int count; //주문 수량
 
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }
