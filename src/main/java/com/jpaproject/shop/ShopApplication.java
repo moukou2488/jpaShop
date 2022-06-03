@@ -7,10 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ShopApplication {
 
     public static void main(String[] args) {
-
-        Hello hello = new Hello();
-        hello.setAge(10);
-        hello.getAge();
         SpringApplication.run(ShopApplication.class, args);
     }
 
