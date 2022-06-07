@@ -4,6 +4,7 @@ import com.jpaproject.shop.domain.Category;
 import com.jpaproject.shop.exception.NotEnoughStockException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtype")
+@Getter
 public abstract class Item {
 
     @Id
