@@ -2,10 +2,7 @@ package com.jpaproject.shop.domain;
 
 import com.jpaproject.shop.domain.enums.DeliveryStatus;
 import com.jpaproject.shop.domain.enums.OrderStatus;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,9 +11,8 @@ import java.util.List;
 
 import static javax.persistence.FetchType.*;
 
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -42,8 +38,10 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status; //주문상태 [ORDER,CANCLE]
 
-    public void changeStatus(OrderStatus orderStatus) {
+    @Builder
+    private Order(OrderStatus orderStatus, LocalDateTime orderDate) {
         this.status = orderStatus;
+        this.orderDate = orderDate;
     }
 
     //== 연관관계 메서드 ==
@@ -66,9 +64,10 @@ public class Order {
     //== 생성메서드 ==
     public static Order createOrder(User user, Delivery delivery, OrderItem... orderItems) {
         Order order = Order.builder()
-                .status(OrderStatus.ORDER)
+                .orderStatus(OrderStatus.ORDER)
                 .orderDate(LocalDateTime.now())
                 .build();
+
         for (OrderItem orderItem : orderItems) {
             order.addOrderItem(orderItem);
         }
@@ -92,6 +91,13 @@ public class Order {
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }
+    }
+
+    /**
+     * 주문 상태 변경
+     */
+    public void changeStatus(OrderStatus orderStatus) {
+        this.status = orderStatus;
     }
 
     //== 조회 로직 ==
