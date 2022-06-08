@@ -1,5 +1,6 @@
 package com.jpaproject.shop.domain.item;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import javax.persistence.Entity;
 @SuperBuilder
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @DiscriminatorValue("M")
 public class Movie extends Item {
 

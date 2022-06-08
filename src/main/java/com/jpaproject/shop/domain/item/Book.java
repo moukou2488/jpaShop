@@ -1,9 +1,6 @@
 package com.jpaproject.shop.domain.item;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
@@ -13,7 +10,7 @@ import javax.persistence.Entity;
 @Builder
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @DiscriminatorValue("B")
 public class Book extends Item {
 

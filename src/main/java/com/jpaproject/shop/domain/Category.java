@@ -1,6 +1,7 @@
 package com.jpaproject.shop.domain;
 
 import com.jpaproject.shop.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Category {
 
     @Id
@@ -41,7 +42,7 @@ public class Category {
         this.parent = parent;
     }
 
-    //연관관계 메서드
+    //== 연관관계 메서드 ==
     public void addChildCategory(Category child) {
         this.child.add(child);
         child.setParent(this);

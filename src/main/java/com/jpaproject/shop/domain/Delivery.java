@@ -2,9 +2,7 @@ package com.jpaproject.shop.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jpaproject.shop.domain.enums.DeliveryStatus;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,7 +11,8 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Delivery {
 
     @Id

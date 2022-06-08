@@ -2,10 +2,7 @@ package com.jpaproject.shop.domain.item;
 
 import com.jpaproject.shop.domain.Category;
 import com.jpaproject.shop.exception.NotEnoughStockException;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
@@ -17,7 +14,7 @@ import java.util.List;
 @DiscriminatorColumn(name = "dtype")
 @Getter
 @SuperBuilder
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public abstract class Item {
 
@@ -42,6 +39,9 @@ public abstract class Item {
         this.stockQuantity += quantity;
     }
 
+    /**
+     * stock 감소
+     */
     public void removeStock(int quantity) {
         int restStock = this.stockQuantity - quantity;
 
