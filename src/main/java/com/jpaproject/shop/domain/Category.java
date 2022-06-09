@@ -25,6 +25,7 @@ public class Category {
 
     private String name;
 
+    @Builder.Default
     @ManyToMany
     @JoinTable(name = "category_item",
             joinColumns = @JoinColumn(name = "category_id"),
@@ -35,6 +36,7 @@ public class Category {
     @JoinColumn(name = "parent_id")
     private Category parent;
 
+    @Builder.Default
     @OneToMany(mappedBy = "parent")
     private List<Category> child = new ArrayList<>();
 

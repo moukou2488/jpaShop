@@ -23,6 +23,7 @@ public class User {
     @Embedded
     private Address address;
 
+    @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<Order> orders = new ArrayList<>();
 
