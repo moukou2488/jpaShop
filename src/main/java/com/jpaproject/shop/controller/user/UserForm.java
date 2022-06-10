@@ -1,4 +1,4 @@
-package com.jpaproject.shop.controller;
+package com.jpaproject.shop.controller.user;
 
 import lombok.Getter;
 import lombok.Setter;
