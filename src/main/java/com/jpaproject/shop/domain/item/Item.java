@@ -1,5 +1,6 @@
 package com.jpaproject.shop.domain.item;
 
+import com.jpaproject.shop.controller.item.ItemDto;
 import com.jpaproject.shop.domain.Category;
 import com.jpaproject.shop.exception.NotEnoughStockException;
 import lombok.*;
@@ -49,5 +50,16 @@ public abstract class Item {
             throw new NotEnoughStockException("need more stock"); }
         this.stockQuantity = restStock;
     }
+
+    /**
+     * 아이템 수정
+     */
+    public void changeParentField(ItemDto item) {
+        this.name = item.getName();
+        this.price = item.getPrice();
+        this.stockQuantity = item.getStockQuantity();
+    }
+
+    abstract public void changeChildField(ItemDto item);
 
 }

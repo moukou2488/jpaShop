@@ -1,5 +1,6 @@
 package com.jpaproject.shop.domain.item;
 
+import com.jpaproject.shop.controller.item.ItemDto;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,4 +21,9 @@ public class Movie extends Item {
     private String director;
     private String actor;
 
+    @Override
+    public void changeChildField(ItemDto item) {
+        this.director = item.getDirector();
+        this.actor = item.getActor();
+    }
 }

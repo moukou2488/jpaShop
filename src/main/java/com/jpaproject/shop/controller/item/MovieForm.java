@@ -1,11 +1,11 @@
-package com.jpaproject.shop.controller;
+package com.jpaproject.shop.controller.item;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class BookForm {
+public class MovieForm {
 
     private Long id;
 
@@ -13,7 +13,7 @@ public class BookForm {
     private int price;
     private int stockQuantity;
 
-    private String author;
-    private String isbn;
+    private String director;
+    private String actor;
 
 }
