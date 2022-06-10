@@ -26,12 +26,11 @@ public class ItemService {
     }
 
     @Transactional
-    public Item updateItem(Long itemId, ItemDto itemDto) {
+    public void updateItem(Long itemId, ItemDto itemDto) {
 
         Item findItem = itemRepository.findOne(itemId);
         findItem.changeParentField(itemDto);
         findItem.changeChildField(itemDto);
-        return findItem;
     }
 
     public List<Item> findItems() {

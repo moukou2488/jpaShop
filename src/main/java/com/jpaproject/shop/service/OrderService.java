@@ -9,6 +9,7 @@ import com.jpaproject.shop.domain.enums.OrderStatus;
 import com.jpaproject.shop.domain.item.Item;
 import com.jpaproject.shop.repository.ItemRepository;
 import com.jpaproject.shop.repository.OrderRepository;
+import com.jpaproject.shop.repository.OrderSearch;
 import com.jpaproject.shop.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -61,8 +62,10 @@ public class OrderService {
         order.cancel();
     }
 
-    //검색
-    /*public List<Order> searchOrder(OrderSearch orderSearch) {
+    /**
+     * 주문 검색
+     */
+    public List<Order> findOrders(OrderSearch orderSearch) {
         return orderRepository.findAll(orderSearch);
-    }*/
+    }
 }
